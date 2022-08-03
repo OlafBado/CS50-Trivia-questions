@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="trivia">
+            <h1>Trivia!</h1>
+        </div>
+    </header>
+    <main>
+        <div class="part-1">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>What is the approximate ration of people to sheep in New Zeland?</h3>
+            <p id="hidden-incorrect">Incorrect!</p>
+            <button id="incorrect-1" onclick="changeColor(1)">6 people per 1 sheep</button>
+            <button id="incorrect-2" onclick="changeColor(2)">3 people per 1 sheep</button>
+            <button id="incorrect-3" onclick="changeColor(3)">1 person per 1 sheep</button>
+            
+        </div>
+        <div class="part-2">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>In which country is it illegal to own only one guinea pig, as a lone guine pig might get lonely?</h3>
+            <p id="hidden-field">aa</p>
+            <input type="text">
+            <button onclick="changeField()">Check Answer</button>
+            
+        </div>
+    </main>
+
+    <script>
+        //funckja, ktora uruchamia sie na danym buttonie gdy zostanie klikniety, funckja pobiera id o danym 
+        //buttonie i odpowiednia dla
+        // A) incorrect zmienia tlo na czerwone i pojawia sie tekst pod pytaniem incorrect
+        // B) correct zmienia tlo na zielone i pojawia sie tekst pod pytaniem correct 
+        function changeColor(x) {
+            if (x === 1) {
+                document.getElementById('incorrect-1').style.backgroundColor = "red"
+                document.getElementById('hidden-incorrect').innerHTML = "Incorrect"
+                document.getElementById('hidden-incorrect').style.display = "block"
+            } 
+            else if (x === 2) {
+                document.getElementById('incorrect-2').style.backgroundColor = "red"
+                document.getElementById('hidden-incorrect').innerHTML = "Incorrect"
+                document.getElementById('hidden-incorrect').style.display = "block" 
+            } 
+            else if (x === 3) {
+                document.getElementById('incorrect-3').style.backgroundColor = "green"
+                document.getElementById('hidden-incorrect').innerHTML = "Correct"
+                document.getElementById('hidden-incorrect').style.display = "block"
+            } 
+        }
+    </script>
+
+    <script>
+        //funkcja-jesli wpisze niepoprawna lub poprawna odpowiedz i nacisnie button to
+        // A) pole tekstowe staje sie czerwone i pojawia sie text pod pytaniem: incorrect
+        // B) pole tekstowe staje sie zielone i pojawia sie tekst pod pytaniem: correct
+        function changeField() {
+            const value = document.querySelector('input').value
+            if (value === "Poland") {
+                document.querySelector('input').style.backgroundColor = "green"
+                document.getElementById('hidden-field').innerHTML = "Correct"
+                document.getElementById('hidden-field').style.display = "block"
+            }
+            else {
+                document.querySelector('input').style.backgroundColor = "red"
+                document.getElementById('hidden-field').innerHTML = "Inorrect"
+                document.getElementById('hidden-field').style.display = "block"
+            }
+        }
+        
+
+    </script>
+
+    
+</body>
+</html>
